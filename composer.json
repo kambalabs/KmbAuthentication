@@ -24,7 +24,13 @@
         "zendframework/zend-developer-tools": "dev-master",
         "satooshi/php-coveralls": "dev-master"
     },
+    "minimum-stability": "dev",
     "autoload": {
-        "classmap": [ "src/" ]
+        "psr-0": {
+            "KmbAuthentication": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
     }
 }
