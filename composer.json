@@ -1,0 +1,30 @@
+{
+    "name": "kambalabs/KmbAuthentication",
+    "description": "Kamba core module for authentication",
+    "keywords": [
+        "kamba",
+        "module"
+    ],
+    "homepage": "http://github.com/kambalabs/KmbAuthentication",
+    "license": "GPL V2",
+    "authors": [
+        {
+            "name": "Emmanuel Bouton",
+            "email": "goten4@gmail.com",
+            "homepage": "http://github.com/goten4",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "kambalabs/kmb-core": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/PHPUnit": "3.7.*",
+        "zendframework/zend-developer-tools": "dev-master",
+        "satooshi/php-coveralls": "dev-master"
+    },
+    "autoload": {
+        "classmap": [ "src/" ]
+    }
+}
