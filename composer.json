@@ -16,8 +16,8 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3",
-        "kambalabs/kmb-core": "dev-master"
+        "kambalabs/kmb-core": "dev-master",
+        "zf-commons/zfc-rbac": "2.4.*"
     },
     "require-dev": {
         "phpunit/PHPUnit": "3.7.*",
