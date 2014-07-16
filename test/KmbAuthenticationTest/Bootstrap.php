@@ -4,7 +4,7 @@ namespace KmbAuthenticationTest;
 use KmbCoreTest\AbstractBootstrap;
 use Zend\Stdlib\ArrayUtils;
 
-require dirname(dirname(dirname(__DIR__))) . '/KmbCore/test/KmbCoreTest/AbstractBootstrap.php';
+require dirname(dirname(__DIR__)) . '/vendor/kambalabs/kmb-core/test/KmbCoreTest/AbstractBootstrap.php';
 
 class Bootstrap extends AbstractBootstrap
 {
