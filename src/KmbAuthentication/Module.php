@@ -37,7 +37,9 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
         $adapter = $serviceManager->get('KmbAuthentication\Adapter');
         /** @var AuthenticationService $authenticationService */
         $authenticationService = $serviceManager->get('Zend\Authentication\AuthenticationService');
-        $authenticationService->authenticate($adapter);
+        if (!$authenticationService->hasIdentity()) {
+            $authenticationService->authenticate($adapter);
+        }
     }
 
     public function getConfig()
