@@ -33,11 +33,11 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
     {
         /** @var ServiceLocatorInterface $serviceManager */
         $serviceManager = $e->getApplication()->getServiceManager();
-        /** @var AdapterInterface $adapter */
-        $adapter = $serviceManager->get('KmbAuthentication\Adapter');
         /** @var AuthenticationService $authenticationService */
         $authenticationService = $serviceManager->get('Zend\Authentication\AuthenticationService');
         if (!$authenticationService->hasIdentity()) {
+            /** @var AdapterInterface $adapter */
+            $adapter = $serviceManager->get('KmbAuthentication\Adapter');
             $authenticationService->authenticate($adapter);
         }
     }
