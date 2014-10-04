@@ -26,6 +26,7 @@ use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\Mvc\MvcEvent;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\Session\Container as SessionContainer;
 
 class Module implements AutoloaderProviderInterface, ConfigProviderInterface
 {
@@ -40,6 +41,7 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
             $adapter = $serviceManager->get('KmbAuthentication\Adapter');
             $authenticationService->authenticate($adapter);
         }
+        SessionContainer::getDefaultManager()->writeClose();
     }
 
     public function getConfig()
