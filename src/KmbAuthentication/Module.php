@@ -20,28 +20,11 @@
  */
 namespace KmbAuthentication;
 
-use Zend\Authentication\Adapter\AdapterInterface;
-use Zend\Authentication\AuthenticationService;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
-use Zend\Mvc\MvcEvent;
-use Zend\ServiceManager\ServiceLocatorInterface;
 
 class Module implements AutoloaderProviderInterface, ConfigProviderInterface
 {
-    public function onBootstrap(MvcEvent $e)
-    {
-        /** @var ServiceLocatorInterface $serviceManager */
-        $serviceManager = $e->getApplication()->getServiceManager();
-        /** @var AuthenticationService $authenticationService */
-        $authenticationService = $serviceManager->get('Zend\Authentication\AuthenticationService');
-        if (!$authenticationService->hasIdentity()) {
-            /** @var AdapterInterface $adapter */
-            $adapter = $serviceManager->get('KmbAuthentication\Adapter');
-            $authenticationService->authenticate($adapter);
-        }
-    }
-
     public function getConfig()
     {
         return include dirname(dirname(__DIR__)) . '/config/module.config.php';
