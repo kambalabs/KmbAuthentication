@@ -51,7 +51,7 @@ abstract class AbstractAuthenticationListener extends AbstractListenerAggregate
                 if (isset($routeMatch)) {
                     $controller = $controllerManager->get($routeMatch->getParam('controller'));
                     if ($controller instanceof AuthenticatedControllerInterface) {
-                        $this->onDispatch($event);
+                        $this->authenticate($event);
                     }
                 }
             },
@@ -59,5 +59,5 @@ abstract class AbstractAuthenticationListener extends AbstractListenerAggregate
         );
     }
 
-    abstract public function onDispatch(MvcEvent $event);
+    abstract public function authenticate(MvcEvent $event);
 }
